@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+  redis:\n    image: redis:7\n    restart: unless-stopped\n  backend:
+    build: ./backend
+    ports:
+      - '4000:4000'
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/cinebook
+      - JWT_SECRET=devsecret
+      - HOLD_TTL_SECONDS=300
+    depends_on:
+      - mongo
+  frontend:
+    build: ./frontend
+    ports:
+      - '5173:5173'
+    depends_on:
+      - backend
+volumes:
+  mongo_data:

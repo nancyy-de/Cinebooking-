@@ -1,0 +1,8 @@
+body{ font-family: system-ui, Arial, sans-serif; padding: 16px; }
+.nav{ background:#111; color:#fff; padding:8px 16px; }
+.container{ max-width:900px; margin:20px auto; }
+.grid{ display:flex; gap:12px; flex-wrap:wrap; }
+.card{ border:1px solid #ddd; padding:12px; width:220px; }
+.seat-grid{ display:grid; grid-template-columns: repeat(8, 60px); gap:8px; margin-top:12px; }
+.seat{ padding:8px; border:1px solid #666; text-align:center; }
+.seat.booked{ background:#f55; color:#fff; }

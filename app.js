@@ -1,0 +1,15 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const movies = require('../src/routes/movies');
+const shows = require('../src/routes/shows');
+const bookings = require('../src/routes/bookings');
+const payments = require('../src/routes/payments');
+const auth = require('../src/routes/auth');
+const app = express();
+app.use(express.json());
+app.use('/api/movies', movies);
+app.use('/api/shows', shows);
+app.use('/api/bookings', bookings);
+app.use('/api/payments', payments);
+app.use('/api/auth', auth);
+module.exports = app;
